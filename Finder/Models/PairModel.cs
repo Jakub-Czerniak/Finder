@@ -1,7 +1,7 @@
 ﻿
 namespace Finder.Models
 {
-    public class Pair
+    public class PairModel
     {
         public int Id { get; set; }
         public int User1Id { get; set; }

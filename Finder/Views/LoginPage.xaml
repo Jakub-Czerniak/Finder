@@ -2,11 +2,26 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Finder.Views.LoginPage"
+             x:DataType="viewmodel:LoginViewModel"
+             xmlns:viewmodel="clr-namespace:Finder.ViewModels"
+             xmlns:model="clr-namespace:Finder.Models"
              Title="">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+    <VerticalStackLayout BackgroundColor="#DD5353" >
+        <HorizontalStackLayout HorizontalOptions="Center" Margin="0,130,0,50">
+            <Label Text="♡" FontSize="20" VerticalOptions="Center"/>
+            <Label Text="F" TextColor="#FFB200" FontSize="40" />
+            <Label Text="inder" FontSize="40" />
+        </HorizontalStackLayout>
+        <Label Text="Email" Margin="30,0,25,2"/>
+        <Entry Text="{Binding User.Email}" Margin="25,0,25,0" BackgroundColor="#B73E3E" Keyboard="Email" />
+        <Label Text="Hasło" Margin="30,10,25,2"/>
+        <Entry Text="{Binding User.Password}" Margin="25,0,25,0" BackgroundColor="#B73E3E" IsPassword="True" />
+        <Button Command="{Binding LoginCommand}" Text="➔" BackgroundColor="White" HeightRequest="50" WidthRequest="50" Margin="0,20,0,0" />
+        <Label Text="First time?" TextColor="#FFB200" TextDecorations="Underline" FontSize="10" FontAttributes="Bold"  Margin="0,15,0,0" HorizontalOptions="Center">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:LoginViewModel}}, Path=GoToRegistrationCommand}"/>
+            </Label.GestureRecognizers>
+        </Label>
+        <Label Text="Huh?" TextColor="#FFB200" TextDecorations="Underline" FontSize="10" FontAttributes="Bold"  Margin="0,0,0,0" HorizontalOptions="Center"/>
     </VerticalStackLayout>
 </ContentPage>

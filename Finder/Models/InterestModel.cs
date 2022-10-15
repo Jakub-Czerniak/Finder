@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Finder.Models
 {
-    public class Interest
+    public class InterestModel
     {
         public int Id { get; set; }
         public string Name { get; set; }

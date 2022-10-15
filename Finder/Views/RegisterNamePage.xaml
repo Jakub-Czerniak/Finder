@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Finder.Views.RegisterNamePage"
+             xmlns:viewmodel="clr-namespace:Finder.ViewModels"
+             x:DataType="viewmodel:RegisterNameViewModel"
+             xmlns:model="clr-namespace:Finder.Models"
+             Title="">
+    <VerticalStackLayout>
+        <Label Text="Mam na" FontSize="40" Margin="20,30,0,0"/>
+        <Label Text="imię" FontSize="40" Margin="20,0,0,0" />
+        <Entry Text="{Binding User.Email}" FontSize="25" Margin="20,30,20,0"/>
+        <Button Command="{Binding GoToRegistrationEmailCommand}" Text="➔" BackgroundColor="White" HeightRequest="50" WidthRequest="50" Margin="0,20,0,0" />
+    </VerticalStackLayout>
+</ContentPage>
