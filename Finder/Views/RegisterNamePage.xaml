@@ -6,10 +6,19 @@
              x:DataType="viewmodel:RegisterNameViewModel"
              xmlns:model="clr-namespace:Finder.Models"
              Title="">
-    <VerticalStackLayout>
-        <Label Text="Mam na" FontSize="40" Margin="20,30,0,0"/>
+    <Grid>
+        <Grid.RowDefinitions >
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="3*"/>
+        </Grid.RowDefinitions>
+        <VerticalStackLayout Grid.Row="0">
+        <Label Text="Mam na" FontSize="40" Margin="20,30,0,0" />
         <Label Text="imię" FontSize="40" Margin="20,0,0,0" />
-        <Entry Text="{Binding User.Email}" FontSize="25" Margin="20,30,20,0"/>
-        <Button Command="{Binding GoToRegistrationEmailCommand}" Text="➔" BackgroundColor="White" HeightRequest="50" WidthRequest="50" Margin="0,20,0,0" />
-    </VerticalStackLayout>
+        </VerticalStackLayout>
+        <Entry Text="{Binding User.Email}" FontSize="25" Margin="20,30,20,0" Grid.Row="2" BackgroundColor="AliceBlue" />
+        <Button Command="{Binding GoToRegisterEmailCommand}" Text="➔" BackgroundColor="Gray" HeightRequest="50" WidthRequest="50" Margin="0,20,0,0" Grid.Row="3" />
+    </Grid>
 </ContentPage>

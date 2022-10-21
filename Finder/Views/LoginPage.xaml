@@ -8,7 +8,6 @@
              Title="">
     <VerticalStackLayout BackgroundColor="#DD5353" >
         <HorizontalStackLayout HorizontalOptions="Center" Margin="0,130,0,50">
-            <Label Text="♡" FontSize="20" VerticalOptions="Center"/>
             <Label Text="F" TextColor="#FFB200" FontSize="40" />
             <Label Text="inder" FontSize="40" />
         </HorizontalStackLayout>

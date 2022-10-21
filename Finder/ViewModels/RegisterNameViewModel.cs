@@ -12,7 +12,7 @@ namespace Finder.ViewModels
         UserModel user;
 
         [RelayCommand]
-        async void GoToRegistrationEmail()
+        async void GoToRegisterEmail()
         {
             var navigationParametr = new Dictionary<string, object>
             {

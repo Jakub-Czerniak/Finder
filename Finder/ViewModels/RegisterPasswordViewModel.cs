@@ -5,21 +5,20 @@ using Finder.Views;
 
 namespace Finder.ViewModels
 {
-    [QueryProperty ("User","User")]
-    public partial class RegisterEmailViewModel : ObservableObject
+    [QueryProperty("User", "User")]
+    public partial class RegisterPasswordViewModel : ObservableObject
     {
         [ObservableProperty]
         UserModel user;
 
         [RelayCommand]
-        async void GoToRegisterPassword()
+        async void GoToRegisterGender()
         {
             var navigationParametr = new Dictionary<string, object>
             {
                 {"User", User }
             };
-            await Shell.Current.GoToAsync($"{nameof(RegisterPasswordPage)}", navigationParametr);
+            await Shell.Current.GoToAsync($"{nameof(RegisterGenderPage)}", navigationParametr);
         }
-
     }
 }

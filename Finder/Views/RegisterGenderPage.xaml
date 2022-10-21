@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Finder.Views.RegisterGenderPage"
+            xmlns:viewmodel="clr-namespace:Finder.ViewModels"
+             x:DataType="viewmodel:RegisterGenderViewModel"
+             xmlns:model="clr-namespace:Finder.Models"
+             Title="RegisterGenderPage">
+    <VerticalStackLayout>
+        <Grid>
+            <Grid.RowDefinitions >
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="0.5*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+
+            <Label Text="Jestem" FontSize="40"/>
+            <Button Text="Kobietą" />
+            <Button Text="Mężczyzną" />
+        </Grid>
+    </VerticalStackLayout>
+</ContentPage>
