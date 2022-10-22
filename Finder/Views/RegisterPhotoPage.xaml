@@ -6,10 +6,16 @@
              x:DataType="viewmodel:RegisterPhotoViewModel"
              xmlns:model="clr-namespace:Finder.Models"
              Title="RegisterPhotoPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        
+        
+        
+    </Grid>
 </ContentPage>

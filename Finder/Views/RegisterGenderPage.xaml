@@ -5,19 +5,22 @@
             xmlns:viewmodel="clr-namespace:Finder.ViewModels"
              x:DataType="viewmodel:RegisterGenderViewModel"
              xmlns:model="clr-namespace:Finder.Models"
-             Title="RegisterGenderPage">
-    <VerticalStackLayout>
-        <Grid>
-            <Grid.RowDefinitions >
-                <RowDefinition Height="2*"/>
-                <RowDefinition Height="0.5*"/>
-                <RowDefinition Height="1*"/>
-                <RowDefinition Height="1*"/>
-            </Grid.RowDefinitions>
+             Title="">
 
-            <Label Text="Jestem" FontSize="40"/>
-            <Button Text="Kobietą" />
-            <Button Text="Mężczyzną" />
-        </Grid>
-    </VerticalStackLayout>
+    <Grid BackgroundColor="#DD5353">
+        <Grid.RowDefinitions >
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="3*"/>
+        </Grid.RowDefinitions>
+
+        <Label Text="Jestem" FontSize="40" Margin="20,30,0,0"/>
+        <Button Text="Kobietą" Command="{Binding WomenTappedCommand}" Grid.Row="2" BackgroundColor="#B73E3E"  Margin="20,0,20,0" FontSize="20"/>
+        <Button Text="Mężczyzną" Command="{Binding MenTappedCommand}" Grid.Row="4" BackgroundColor="#B73E3E"  Margin="20,0,20,0" FontSize="20"/>
+    </Grid>
+
 </ContentPage>

@@ -12,7 +12,20 @@ namespace Finder.ViewModels
         UserModel user;
 
         [RelayCommand]
-        async void GoToRegisterPhotot()
+        void MenTapped()
+        {
+            User.Gender = "Men";
+            GoToRegisterPhoto();
+        }
+
+        [RelayCommand]
+        void WomenTapped()
+        {
+            User.Gender = "Women";
+            GoToRegisterPhoto();
+        }
+
+        async void GoToRegisterPhoto()
         {
             var navigationParametr = new Dictionary<string, object>
             {

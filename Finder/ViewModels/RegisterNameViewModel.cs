@@ -21,5 +21,10 @@ namespace Finder.ViewModels
 
             await Shell.Current.GoToAsync($"{nameof(RegisterEmailPage)}",navigationParametr);
         }
+
+        public RegisterNameViewModel()
+        {
+            user = new UserModel();
+        }
     }
 }

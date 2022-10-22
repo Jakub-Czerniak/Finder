@@ -7,6 +7,6 @@ public partial class RegisterEmailPage : ContentPage
 	public RegisterEmailPage()
 	{
 		InitializeComponent();
-		BindingContext = new RegisterNameViewModel();
+		BindingContext = new RegisterEmailViewModel();
 	}
 }

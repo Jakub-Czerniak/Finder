@@ -6,16 +6,20 @@
              x:DataType="viewmodel:RegisterEmailViewModel"
              xmlns:model="clr-namespace:Finder.Models"
              Title="">
-    <Grid>
+    <Grid BackgroundColor="#DD5353">
         <Grid.RowDefinitions >
             <RowDefinition Height="2*"/>
             <RowDefinition Height="0.5*"/>
             <RowDefinition Height="1*"/>
             <RowDefinition Height="1*"/>
+            <RowDefinition Height="3*"/>
         </Grid.RowDefinitions>
-
-        <Label Text="Mój adres e-mail to" FontSize="40"/>
-        <Entry Text="{Binding User.Email}" Keyboard="Email" FontSize="20" Grid.Row="2"/>
-        <Button Command="{Binding GoToRegisterPasswordCommand}" Text="➔" BackgroundColor="White" HeightRequest="50" WidthRequest="50" Margin="0,20,0,0" Grid.Row="3" />
+        <VerticalStackLayout Margin="20,30,0,0">
+            <Label Text="Mój" FontSize="40"/>
+            <Label Text="adres e-mail" FontSize="40"/>
+            <Label Text="to" FontSize="40"/>
+        </VerticalStackLayout>
+        <Entry Text="{Binding User.Email}" Keyboard="Email" FontSize="25" Grid.Row="2" BackgroundColor="#B73E3E" VerticalOptions="Center" Margin="20,0,20,0"/>
+        <Button Command="{Binding GoToRegisterPasswordCommand}" Text="➔" BackgroundColor="#B73E3E" HeightRequest="50" WidthRequest="50" Margin="0,20,0,0" Grid.Row="3" />
     </Grid>
 </ContentPage>
