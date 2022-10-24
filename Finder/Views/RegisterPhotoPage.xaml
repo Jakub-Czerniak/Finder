@@ -5,17 +5,21 @@
              xmlns:viewmodel="clr-namespace:Finder.ViewModels"
              x:DataType="viewmodel:RegisterPhotoViewModel"
              xmlns:model="clr-namespace:Finder.Models"
-             Title="RegisterPhotoPage">
+             Title="">
 
-    <Grid>
+    <Grid BackgroundColor="#DD5353">
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="0.3*"/>
             <RowDefinition Height="1*"/>
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
-        
-        
-        
+
+        <Label Text="Wybierz zdjęcie" FontSize="40" Margin="20,30,0,0"/>
+        <Image Source="{Binding User.Photo.Source}" Grid.Row="1"/>
+        <Button Command="{Binding AddPhotoCommand}" Text="Add photo" Grid.Row="3" BackgroundColor="#B73E3E" Margin="20,0,20,0"/>
+        <Button Command="{Binding FinishRegistrationCommand}" Text="➔" BackgroundColor="#B73E3E" HeightRequest="50" WidthRequest="50" Grid.Row="4" />
+
     </Grid>
 </ContentPage>
