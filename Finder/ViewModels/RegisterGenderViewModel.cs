@@ -15,23 +15,23 @@ namespace Finder.ViewModels
         void MenTapped()
         {
             User.Gender = "Men";
-            GoToRegisterPhoto();
+            GoToRegisterInterestedIn();
         }
 
         [RelayCommand]
         void WomenTapped()
         {
             User.Gender = "Women";
-            GoToRegisterPhoto();
+            GoToRegisterInterestedIn();
         }
 
-        async void GoToRegisterPhoto()
+        async void GoToRegisterInterestedIn()
         {
             var navigationParametr = new Dictionary<string, object>
             {
                 {"User", User }
             };
-            await Shell.Current.GoToAsync($"{nameof(RegisterPhotoPage)}", navigationParametr);
+            await Shell.Current.GoToAsync($"{nameof(RegisterInterestedInPage)}", navigationParametr);
         }
 
     }

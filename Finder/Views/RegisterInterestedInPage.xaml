@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Finder.Views.RegisterInterestedInPage"
+             xmlns:viewmodel="clr-namespace:Finder.ViewModels"
+             x:DataType="viewmodel:RegisterInterestedInViewModel"
+             xmlns:model="clr-namespace:Finder.Models"
+             Title="">
+    <Grid BackgroundColor="#DD5353">
+        <Grid.RowDefinitions >
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="3*"/>
+        </Grid.RowDefinitions>
+
+        <Label Text="Jestem zainteresowany" FontSize="40" Margin="20,30,0,0"/>
+        <Button Text="Kobietami" Command="{Binding WomenTappedCommand}" Grid.Row="2" BackgroundColor="{Binding WomenButtonColor}"  Margin="20,0,20,0" FontSize="20"/>
+        <Button Text="Mężczyznami" Command="{Binding MenTappedCommand}" Grid.Row="4" BackgroundColor="{Binding MenButtonColor}"  Margin="20,0,20,0" FontSize="20"/>
+        <Button Command="{Binding GoToRegisterPhotoCommand}" Text="➔" BackgroundColor="#B73E3E" HeightRequest="50" WidthRequest="50" Grid.Row="5" />
+    </Grid>
+</ContentPage>

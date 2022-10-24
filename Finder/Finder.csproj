@@ -72,6 +72,9 @@
 	  <MauiXaml Update="Views\RegisterGenderPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\RegisterInterestedInPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\RegisterNamePage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

@@ -9,5 +9,8 @@ namespace Finder.Models
         public string Password { get; set; }
         public string Gender { get; set; }
         public Image Photo { get; set; }
+        public DateTime LastActive { get; set; }
+        public bool InterestedM { get; set; }
+        public bool InterestedF { get; set; }
     }
 }

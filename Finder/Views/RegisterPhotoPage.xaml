@@ -20,6 +20,5 @@
         <Image Source="{Binding User.Photo.Source}" Grid.Row="1"/>
         <Button Command="{Binding AddPhotoCommand}" Text="Add photo" Grid.Row="3" BackgroundColor="#B73E3E" Margin="20,0,20,0"/>
         <Button Command="{Binding FinishRegistrationCommand}" Text="➔" BackgroundColor="#B73E3E" HeightRequest="50" WidthRequest="50" Grid.Row="4" />
-
     </Grid>
 </ContentPage>
