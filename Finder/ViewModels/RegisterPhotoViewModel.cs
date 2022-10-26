@@ -15,8 +15,10 @@ namespace Finder.ViewModels
         async void FinishRegistration()
         {
             //api call
+            //MainPage = new AppShell();
             //go to main page
         }
+
         [RelayCommand]
         async void AddPhoto()
         {

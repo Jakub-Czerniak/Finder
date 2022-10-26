@@ -5,10 +5,18 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:Finder.Views"
     Shell.FlyoutBehavior="Disabled">
-
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:LoginPage}"
+    <TabBar>
+        <ShellContent
+        Title="Szukaj"
+        ContentTemplate="{DataTemplate local:RecommendationPage}"
         Route="LoginPage" />
-
+        <ShellContent
+        Title="Pary"
+        ContentTemplate="{DataTemplate local:MatchedUsersPage}"
+        Route="LoginPage" />
+        <ShellContent
+        Title="Ja"
+        ContentTemplate="{DataTemplate local:UserEditPage}"
+        Route="LoginPage" />
+    </TabBar>
 </Shell>
