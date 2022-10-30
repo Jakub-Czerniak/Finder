@@ -6,11 +6,10 @@
              xmlns:viewmodel="clr-namespace:Finder.ViewModels"
              xmlns:model="clr-namespace:Finder.Models"
              Title="">
-    
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+
+    <ScrollView BackgroundColor="#DD5353">
+        <CollectionView>
+            
+        </CollectionView>
+    </ScrollView>
 </ContentPage>

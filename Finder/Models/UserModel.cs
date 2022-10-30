@@ -12,5 +12,6 @@ namespace Finder.Models
         public DateTime LastActive { get; set; }
         public bool InterestedM { get; set; }
         public bool InterestedF { get; set; }
+        public string AboutMe { get; set; }
     }
 }

@@ -4,5 +4,6 @@ namespace Finder.ViewModels
 {
     public partial class RecommendationSettingsViewModel : ObservableObject
     {
+
     }
 }

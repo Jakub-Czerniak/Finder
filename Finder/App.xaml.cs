@@ -1,4 +1,6 @@
-﻿namespace Finder;
+﻿using Finder.Views;
+
+namespace Finder;
 
 public partial class App : Application
 {

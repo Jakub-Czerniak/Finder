@@ -6,11 +6,35 @@
              x:DataType="viewmodel:RecommendationViewModel"
              xmlns:model="clr-namespace:Finder.Models"
              Title="">
-    
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+
+    <Grid BackgroundColor="#DD5353">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.25"/>
+            <ColumnDefinition Width="0.25"/>
+            <ColumnDefinition Width="0.25"/>
+            <ColumnDefinition Width="0.25"/>
+        </Grid.ColumnDefinitions>
+        <Label Text="Finder"  Grid.Column="1" Grid.ColumnSpan="2"/>
+        <Button Text="Settings" Grid.Column="3"/>
+        
+        <Image Source="{Binding RecommendedUser.Photo.Source}" Grid.Row="1" Grid.ColumnSpan="4" ></Image>
+        <Grid Grid.Row="1" Grid.ColumnSpan="4" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="0.25*"/>
+                <RowDefinition Height="0.75*"/>
+            </Grid.RowDefinitions>
+            <Label Text="{Binding RecommendedUser.Name}" FontSize="40"/>
+            <Label Text="{Binding AboutMeShort}" FontSize="20"/>
+        </Grid>
+
+        <Button Text="y" Grid.Row="2" Grid.ColumnSpan="2"/>
+        <Button Text="pass" Grid.Row="2" Grid.ColumnSpan="2" Grid.Column="2"/>
+
+    </Grid>
 </ContentPage>

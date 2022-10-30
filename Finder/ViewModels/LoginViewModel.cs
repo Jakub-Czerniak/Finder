@@ -1,4 +1,5 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+﻿using Android.Telecom;
+using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Finder.Models;
 using Finder.Views;
@@ -11,9 +12,15 @@ namespace Finder.ViewModels
         UserModel user;
 
         [RelayCommand]
-        void Login()
+        async void Login()
         {
-            //Api call
+            user = new UserModel();
+            //User = //Api call
+            var navigationParametr = new Dictionary<string, object>
+            {
+                {"User", User }
+            };
+            await Shell.Current.GoToAsync("//Home", navigationParametr);
         }
 
         [RelayCommand]
