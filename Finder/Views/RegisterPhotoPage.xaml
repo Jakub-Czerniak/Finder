@@ -18,7 +18,7 @@
 
         <Label Text="Wybierz zdjęcie" FontSize="40" Margin="20,30,0,0"/>
         <Image Source="{Binding User.Photo.Source}" Grid.Row="1"/>
-        <Button Command="{Binding AddPhotoCommand}" Text="Add photo" Grid.Row="3" BackgroundColor="#B73E3E" Margin="20,0,20,0"/>
-        <Button Command="{Binding FinishRegistrationCommand}" Text="➔" BackgroundColor="#B73E3E" HeightRequest="50" WidthRequest="50" Grid.Row="4" />
+        <Button Command="{Binding AddPhotoCommand}" Text="Add photo" TextColor="White" Grid.Row="3" BackgroundColor="#B73E3E" Margin="20,0,20,0"/>
+        <Button Command="{Binding GoToRegisterInterestsCommand}" Text="➔" TextColor="White" BackgroundColor="#B73E3E" HeightRequest="50" WidthRequest="50" Grid.Row="4" />
     </Grid>
 </ContentPage>

@@ -10,21 +10,35 @@ namespace Finder.ViewModels
     {
         [ObservableProperty]
         UserModel user;
+        [ObservableProperty]
+        bool isValidEntry;
+        [ObservableProperty]
+        bool isVisibleEntryError;
 
         [RelayCommand]
         async void GoToRegisterEmail()
         {
-            var navigationParametr = new Dictionary<string, object>
+             if (IsValidEntry)
             {
+                var navigationParametr = new Dictionary<string, object>
+                {
                 {"User", User }
-            };
-
-            await Shell.Current.GoToAsync($"{nameof(RegisterEmailPage)}",navigationParametr);
+                };
+                await Shell.Current.GoToAsync($"{nameof(RegisterEmailPage)}", navigationParametr);
+            }
+            else
+            {
+                IsVisibleEntryError = true;
+            }
         }
 
         public RegisterNameViewModel()
         {
             user = new UserModel();
+            User.Name = "";
+            User.Email = "";
+            User.Password = "";
+
         }
     }
 }

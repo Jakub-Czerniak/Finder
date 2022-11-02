@@ -6,10 +6,30 @@
              x:DataType="viewmodel:UserEditViewModel"
              xmlns:model="clr-namespace:Finder.Models"
              Title="">
-    <ScrollView>
+    <ScrollView BackgroundColor="#DD5353">
         <VerticalStackLayout>
-            <Label Text="Twoje zdjęcie" FontSize="30"/>
-            <Image Source="{Binding User.Photo.Source}"/>
+            <Label Text="Twoje zdjęcie" FontSize="20" Margin="6,4,0,5"/>
+            <Image Source="{Binding User.Photo.Source}" />
+            <Label Text="O mnie" FontSize="20" Margin="6,10,0,5"/>
+            <Editor Text="{Binding User.AboutMe}" BackgroundColor="Wheat" MinimumHeightRequest="75" Placeholder="Napisz coś o sobie" PlaceholderColor="#DD5353"/>
+            <Label Text="Zainteresowania" FontSize="20" Margin="6,10,0,5" />
+            <Button Text="{Binding InterestString}" BackgroundColor="#B73E3E"/>
+            <Label Text="Płeć" FontSize="20" Margin="6,10,0,5"/>
+            <Button Text="{Binding User.Gender}" BackgroundColor="#B73E3E"/>
+            <Label Text="Interesują mnie" FontSize="20" Margin="6,10,0,5"/>
+            <Button Text="{Binding IntrestedInString}" BackgroundColor="#B73E3E"/>
+            <HorizontalStackLayout>
+                <Label Text="Preferowany wiek" FontSize="20" Margin="6,10,0,5"/>
+                <Label Text="{Binding User.MinAgePreference}" HorizontalOptions="End"/>
+                <Label Text=" - " HorizontalOptions="End"/>
+                <Label Text="{Binding User.MaxAgePreference}" HorizontalOptions="End"/>
+            </HorizontalStackLayout>
+            <Slider Minimum="2" Maximum="{Binding User.MinAgePreference}" Value="{Binding User.MinAgePreference}" MinimumTrackColor="#B73E3E" ThumbColor="#B73E3E"/>
+            <Slider Minimum="{Binding User.MinAgePreference}" Maximum="160" Value="{Binding User.MinAgePreference}" MinimumTrackColor="#B73E3E" ThumbColor="#B73E3E"/>
+            <Label Text="Zarządzanie kontem" FontSize="20" Margin="6,10,0,5"/>
+            <Button Text="Podgląd profilu" BackgroundColor="#B73E3E" Margin="2,2,2,2"/>
+            <Button Text="Wyloguj" BackgroundColor="#B73E3E" Margin="2,2,2,2" Command="{Binding LogoutCommand}"/>
+            <Button Text="Usuń konto" BackgroundColor="#B73E3E" Margin="2,2,2,2"/>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

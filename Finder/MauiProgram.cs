@@ -11,15 +11,12 @@ public static class MauiProgram
 		var builder = MauiApp.CreateBuilder();
 		builder
 			.UseMauiApp<App>()
-			.ConfigureFonts(fonts =>
+            .UseMauiApp<App>().UseMauiCommunityToolkit()
+            .ConfigureFonts(fonts =>
 			{
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
 			});
-        builder.UseMauiApp<App>().UseMauiCommunityToolkit();
-
-		builder.Services.AddTransient<RegisterNamePage>();
-		builder.Services.AddTransient<RegisterNameViewModel>();
 
         return builder.Build();
 	}

@@ -72,7 +72,7 @@
 	  <MauiXaml Update="Views\RecommendationPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\RecommendationSettingsPage.xaml">
+	  <MauiXaml Update="Views\RegisterAgePage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\RegisterEmailPage.xaml">
@@ -82,6 +82,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\RegisterInterestedInPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\RegisterInterestsPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\RegisterNamePage.xaml">

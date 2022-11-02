@@ -8,9 +8,12 @@
              Title="">
     
     <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+        <Image Source="{Binding User.Photo.Source}"/>
+        <Label Text="{Binding User.Name}"/>
+        <Label Text="O mnie" />
+        <Label Text="{Binding User.AboutMe}"/>
+        <Label Text="Moje zainteresowania" />
+        
+
     </VerticalStackLayout>
 </ContentPage>

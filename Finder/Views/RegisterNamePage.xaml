@@ -5,7 +5,10 @@
              xmlns:viewmodel="clr-namespace:Finder.ViewModels"
              x:DataType="viewmodel:RegisterNameViewModel"
              xmlns:model="clr-namespace:Finder.Models"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              Title="">
+
+
     <Grid BackgroundColor="#DD5353">
         <Grid.RowDefinitions >
             <RowDefinition Height="2*"/>
@@ -18,7 +21,14 @@
         <Label Text="Mam na" FontSize="40" Margin="20,30,0,0" />
         <Label Text="imię" FontSize="40" Margin="20,0,0,0" />
         </VerticalStackLayout>
-        <Entry Text="{Binding User.Name}" FontSize="25" Margin="20,0,20,0" Grid.Row="2"  BackgroundColor="#B73E3E" VerticalOptions="Center"/>
-        <Button Command="{Binding GoToRegisterEmailCommand}" Text="➔" BackgroundColor="#B73E3E" HeightRequest="50" WidthRequest="50" Grid.Row="3" />
+        <VerticalStackLayout Grid.Row="2">
+        <Entry Text="{Binding User.Name}" FontSize="25" Margin="20,0,20,0"   BackgroundColor="#B73E3E" VerticalOptions="Center" >
+            <Entry.Behaviors>
+                <toolkit:TextValidationBehavior MinimumLength="1" MaximumLength="55" IsValid="{Binding IsValidEntry}" Flags="ValidateOnValueChanged"/>
+            </Entry.Behaviors>
+        </Entry>
+            <Label Text="Proszę wpisać swoje imię." IsVisible="{Binding IsVisibleEntryError}" FontSize="10" Margin="20,5,20,0" TextColor="Gray" VerticalOptions="End"/>
+        </VerticalStackLayout>
+        <Button Command="{Binding GoToRegisterEmailCommand}" Text="➔" TextColor="White" BackgroundColor="#B73E3E" HeightRequest="50" WidthRequest="50" Grid.Row="3" />
     </Grid>
 </ContentPage>

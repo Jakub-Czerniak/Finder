@@ -19,8 +19,8 @@
         </Grid.RowDefinitions>
 
         <Label Text="Jestem" FontSize="40" Margin="20,30,0,0"/>
-        <Button Text="Kobietą" Command="{Binding WomenTappedCommand}" Grid.Row="2" BackgroundColor="#B73E3E"  Margin="20,0,20,0" FontSize="20"/>
-        <Button Text="Mężczyzną" Command="{Binding MenTappedCommand}" Grid.Row="4" BackgroundColor="#B73E3E"  Margin="20,0,20,0" FontSize="20"/>
+        <Button Text="Kobietą" Command="{Binding WomenTappedCommand}" TextColor="White" Grid.Row="2" BackgroundColor="#B73E3E"  Margin="20,0,20,0" FontSize="20"/>
+        <Button Text="Mężczyzną" Command="{Binding MenTappedCommand}" TextColor="White" Grid.Row="4" BackgroundColor="#B73E3E"  Margin="20,0,20,0" FontSize="20"/>
     </Grid>
 
 </ContentPage>

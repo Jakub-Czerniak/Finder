@@ -5,6 +5,7 @@
              xmlns:viewmodel="clr-namespace:Finder.ViewModels"
              x:DataType="viewmodel:RegisterEmailViewModel"
              xmlns:model="clr-namespace:Finder.Models"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              Title="">
     <Grid BackgroundColor="#DD5353">
         <Grid.RowDefinitions >
@@ -19,7 +20,14 @@
             <Label Text="adres e-mail" FontSize="40"/>
             <Label Text="to" FontSize="40"/>
         </VerticalStackLayout>
-        <Entry Text="{Binding User.Email}" Keyboard="Email" FontSize="25" Grid.Row="2" BackgroundColor="#B73E3E" VerticalOptions="Center" Margin="20,0,20,0"/>
-        <Button Command="{Binding GoToRegisterPasswordCommand}" Text="➔" BackgroundColor="#B73E3E" HeightRequest="50" WidthRequest="50" Margin="0,20,0,0" Grid.Row="3" />
+        <VerticalStackLayout Grid.Row="2">
+        <Entry Text="{Binding User.Email}" Keyboard="Email" FontSize="25"  BackgroundColor="#B73E3E" VerticalOptions="Center" Margin="20,0,20,0">
+            <Entry.Behaviors>
+                <toolkit:EmailValidationBehavior IsValid="{Binding IsValidEntry}" MinimumLength="1" MaximumLength="250" Flags="ValidateOnValueChanged"/>
+            </Entry.Behaviors>
+        </Entry>
+            <Label Text="Proszę wpisać poprawny email." IsVisible="{Binding IsVisibleEntryError}" FontSize="10" Margin="20,5,20,0" TextColor="Gray" VerticalOptions="End"/>
+        </VerticalStackLayout>
+        <Button Command="{Binding GoToRegisterPasswordCommand}" Text="➔" TextColor="White" BackgroundColor="#B73E3E" HeightRequest="50" WidthRequest="50" Margin="0,20,0,0" Grid.Row="3" />
     </Grid>
 </ContentPage>

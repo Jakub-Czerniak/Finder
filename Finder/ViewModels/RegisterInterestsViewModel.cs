@@ -1,33 +1,25 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Finder.Models;
-using Finder.Views;
 
 namespace Finder.ViewModels
 {
-    public partial class LoginViewModel : ObservableObject
+    [QueryProperty ("User", "User")]
+    public partial class RegisterInterestsViewModel : ObservableObject
     {
         [ObservableProperty]
         UserModel user;
 
         [RelayCommand]
-        async void Login()
+        async void FinishRegistration()
         {
-            user = new UserModel();
-            //User = //Api call
+            //api call
             var navigationParametr = new Dictionary<string, object>
             {
                 {"User", User }
             };
             await Shell.Current.GoToAsync("//Home", navigationParametr);
         }
-
-        [RelayCommand]
-        async void GoToRegistration()
-        {
-            await Shell.Current.GoToAsync($"{nameof(RegisterNamePage)}");
-        }
-
 
     }
 }

@@ -12,11 +12,14 @@ namespace Finder.ViewModels
         UserModel user;
 
         [RelayCommand]
-        async void FinishRegistration()
+        async void GoToRegisterInterests()
         {
-            //api call
-            //MainPage = new AppShell();
-            //go to main page
+            var navigationParametr = new Dictionary<string, object>
+            {
+                {"User", User }
+            };
+            await Shell.Current.GoToAsync($"{nameof(RegisterInterestsPage)}", navigationParametr);
+            
         }
 
         [RelayCommand]

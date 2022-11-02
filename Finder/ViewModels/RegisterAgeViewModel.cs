@@ -3,12 +3,11 @@ using Finder.Models;
 
 namespace Finder.ViewModels
 {
-    [QueryProperty ("User","User")]
-    public partial class UserDetailsViewModel : ObservableObject
+    [QueryProperty ("User", "User")]
+    public partial class RegisterAgeViewModel : ObservableObject
     {
         [ObservableProperty]
         UserModel user;
-
 
     }
 }

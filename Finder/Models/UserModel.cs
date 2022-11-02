@@ -1,5 +1,4 @@
-﻿
-namespace Finder.Models
+﻿namespace Finder.Models
 {
     public class UserModel
     {
@@ -13,5 +12,8 @@ namespace Finder.Models
         public bool InterestedM { get; set; }
         public bool InterestedF { get; set; }
         public string AboutMe { get; set; }
+        public List<InterestModel> Interests { get; set; }
+        public int MinAgePreference {get; set;}
+        public int MaxAgePreference { get; set; }
     }
 }

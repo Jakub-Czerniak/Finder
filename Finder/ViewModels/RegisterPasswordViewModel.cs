@@ -10,15 +10,26 @@ namespace Finder.ViewModels
     {
         [ObservableProperty]
         UserModel user;
+        [ObservableProperty]
+        bool isValidEntry;
+        [ObservableProperty]
+        bool isVisibleEntryError;
 
         [RelayCommand]
         async void GoToRegisterGender()
         {
-            var navigationParametr = new Dictionary<string, object>
+            if (IsValidEntry)
             {
+                var navigationParametr = new Dictionary<string, object>
+                {
                 {"User", User }
-            };
-            await Shell.Current.GoToAsync($"{nameof(RegisterGenderPage)}", navigationParametr);
+                };
+                await Shell.Current.GoToAsync($"{nameof(RegisterGenderPage)}", navigationParametr);
+            }
+            else 
+            {
+                IsVisibleEntryError = true;
+            }
         }
     }
 }
