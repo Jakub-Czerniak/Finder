@@ -5,8 +5,13 @@
              xmlns:viewmodel="clr-namespace:Finder.ViewModels"
              x:DataType="viewmodel:RegisterPhotoViewModel"
              xmlns:model="clr-namespace:Finder.Models"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              Title="">
-
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <toolkit:ByteArrayToImageSourceConverter x:Key="ByteArrayToImageSourceConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <Grid BackgroundColor="#DD5353">
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
@@ -17,7 +22,7 @@
         </Grid.RowDefinitions>
 
         <Label Text="Wybierz zdjęcie" FontSize="40" Margin="20,30,0,0"/>
-        <Image Source="{Binding User.Photo.Source}" Grid.Row="1"/>
+        <Image Source="{Binding Photoo, Mode=OneWay, Converter={StaticResource ByteArrayToImageSourceConverter}}" Grid.Row="1"/>
         <Button Command="{Binding AddPhotoCommand}" Text="Add photo" TextColor="White" Grid.Row="3" BackgroundColor="#B73E3E" Margin="20,0,20,0"/>
         <Button Command="{Binding GoToRegisterInterestsCommand}" Text="➔" TextColor="White" BackgroundColor="#B73E3E" HeightRequest="50" WidthRequest="50" Grid.Row="4" />
     </Grid>

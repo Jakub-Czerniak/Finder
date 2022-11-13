@@ -16,7 +16,7 @@ namespace Finder.ViewModels
         bool isVisibleEntryError;
 
         [RelayCommand]
-        async void GoToRegisterEmail()
+        async void GoToRegisterAge()
         {
              if (IsValidEntry)
             {
@@ -24,7 +24,7 @@ namespace Finder.ViewModels
                 {
                 {"User", User }
                 };
-                await Shell.Current.GoToAsync($"{nameof(RegisterEmailPage)}", navigationParametr);
+                await Shell.Current.GoToAsync($"{nameof(RegisterAgePage)}", navigationParametr);
             }
             else
             {

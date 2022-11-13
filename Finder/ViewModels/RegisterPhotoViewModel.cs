@@ -2,6 +2,7 @@
 using CommunityToolkit.Mvvm.Input;
 using Finder.Models;
 using Finder.Views;
+using Xamarin.Google.Crypto.Tink.Subtle;
 
 namespace Finder.ViewModels
 {
@@ -10,6 +11,17 @@ namespace Finder.ViewModels
     {
         [ObservableProperty]
         UserModel user;
+        byte[] photoo;
+        public byte[] Photo
+        {
+            get { return photo; }
+            set 
+            {
+                photoo = value;
+                OnPropertyChanged();
+            }
+        }
+
 
         [RelayCommand]
         async void GoToRegisterInterests()
@@ -25,18 +37,21 @@ namespace Finder.ViewModels
         [RelayCommand]
         async void AddPhoto()
         {
-            FileResult photo = await MediaPicker.Default.PickPhotoAsync();
-
+            FileResult photo = await MediaPicker.PickPhotoAsync();
+            
             if(photo != null)
             {
                 Stream stream = await photo.OpenReadAsync();
-                User.Photo = new Image { Source = ImageSource.FromStream(() => stream) };
+                var memoryStream = new MemoryStream();
+                stream.CopyTo(memoryStream);
+                User.Photo = memoryStream.ToArray();
+                Photo = memoryStream.ToArray();
             }
 
         }
         public RegisterPhotoViewModel()
         {
-            
+
         }
     }
 }

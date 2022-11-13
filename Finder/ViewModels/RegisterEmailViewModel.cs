@@ -2,6 +2,7 @@
 using CommunityToolkit.Mvvm.Input;
 using Finder.Models;
 using Finder.Views;
+using DataAccess;
 
 namespace Finder.ViewModels
 {
@@ -14,11 +15,15 @@ namespace Finder.ViewModels
         bool isValidEntry;
         [ObservableProperty]
         bool isVisibleEntryError;
+        [ObservableProperty]
+        bool isVisibleUniqueError;
 
         [RelayCommand]
         async void GoToRegisterPassword()
         {
-            if (IsValidEntry)
+            var IsUnique = await Data.EmailIsUnique(User.Email);
+
+            if (IsValidEntry &  IsUnique)
             {
                 var navigationParametr = new Dictionary<string, object>
             {
@@ -26,8 +31,14 @@ namespace Finder.ViewModels
             };
                 await Shell.Current.GoToAsync($"{nameof(RegisterPasswordPage)}", navigationParametr);
             }
+            else if (IsValidEntry)
+            {
+                IsVisibleEntryError = false;
+                IsVisibleUniqueError = true;
+            }
             else
             {
+                IsVisibleUniqueError = false;
                 IsVisibleEntryError = true;
             }
         }

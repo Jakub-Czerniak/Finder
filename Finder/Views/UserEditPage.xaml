@@ -9,7 +9,7 @@
     <ScrollView BackgroundColor="#DD5353">
         <VerticalStackLayout>
             <Label Text="Twoje zdjęcie" FontSize="20" Margin="6,4,0,5"/>
-            <Image Source="{Binding User.Photo.Source}" />
+            <Image Source="{Binding User.Photo, Mode=OneWay, Converter={StaticResource ByteArrayToImageSourceConverter}}" />
             <Label Text="O mnie" FontSize="20" Margin="6,10,0,5"/>
             <Editor Text="{Binding User.AboutMe}" BackgroundColor="Wheat" MinimumHeightRequest="75" Placeholder="Napisz coś o sobie" PlaceholderColor="#DD5353"/>
             <Label Text="Zainteresowania" FontSize="20" Margin="6,10,0,5" />

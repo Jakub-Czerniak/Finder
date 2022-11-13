@@ -21,8 +21,8 @@
         </Grid.ColumnDefinitions>
         <Label Text="Finder"  Grid.Column="1" Grid.ColumnSpan="2"/>
         <Button Text="Settings" Grid.Column="3"/>
-        
-        <Image Source="{Binding RecommendedUser.Photo.Source}" Grid.Row="1" Grid.ColumnSpan="4" ></Image>
+
+        <Image Source="{Binding RecommendedUser.Photo, Mode=OneWay, Converter={StaticResource ByteArrayToImageSourceConverter}}" Grid.Row="1" Grid.ColumnSpan="4" ></Image>
         <Grid Grid.Row="1" Grid.ColumnSpan="4" >
             <Grid.RowDefinitions>
                 <RowDefinition Height="3*"/>

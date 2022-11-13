@@ -6,11 +6,17 @@
              x:DataType="viewmodel:RegisterInterestsViewModel"
              xmlns:model="clr-namespace:Finder.Models"
              Title="">
-    
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+
+    <Grid BackgroundColor="#DD5353">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5"/>
+            <RowDefinition Height="1"/>
+        </Grid.RowDefinitions>
+        <ScrollView>
+            <CollectionView>
+                
+            </CollectionView>
+        </ScrollView>
+        <Button Command="{Binding FinishRegistrationCommand}" Text="➔" TextColor="White" BackgroundColor="#B73E3E" HeightRequest="50" WidthRequest="50" Grid.Row="2" />
+    </Grid>
 </ContentPage>

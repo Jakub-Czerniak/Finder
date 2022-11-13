@@ -2,6 +2,7 @@
 using CommunityToolkit.Mvvm.Input;
 using Finder.Models;
 using Finder.Views;
+using DataAccess;
 
 namespace Finder.ViewModels
 {
@@ -14,7 +15,13 @@ namespace Finder.ViewModels
         async void Login()
         {
             user = new UserModel();
-            //User = //Api call
+            /*var data = await Data.Login(user.Email, user.Password);
+            //User.Interests= api call;
+
+            User.AboutMe = data.AboutMe;
+            User.Id = data.Id;
+            User.MaxAgePreference = data.MaxAgePreference;*/
+
             var navigationParametr = new Dictionary<string, object>
             {
                 {"User", User }

@@ -5,12 +5,38 @@
              xmlns:viewmodel="clr-namespace:Finder.ViewModels"
              x:DataType="viewmodel:RegisterAgeViewModel"
              xmlns:model="clr-namespace:Finder.Models"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              Title="">
-    
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+
+    <Grid BackgroundColor="#DD5353">
+        <Grid.RowDefinitions >
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="3*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.5*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="0.5*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="0.5*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="0.5*"/>
+        </Grid.ColumnDefinitions>
+
+        <VerticalStackLayout Grid.Row="0" Grid.ColumnSpan="7">
+            <Label Text="Urodziłem" FontSize="40" Margin="20,30,0,0" />
+            <Label Text="się" FontSize="40" Margin="20,0,0,0" />
+        </VerticalStackLayout>
+        <Label Text="DD" Grid.Row="2" Grid.Column="1" FontSize="30" HorizontalOptions="Center" VerticalOptions="End"/>
+        <Label Text="MM" Grid.Row="2" Grid.Column="3" FontSize="30" HorizontalOptions="Center" VerticalOptions="End"/>
+        <Label Text="YYYY" Grid.Row="2" Grid.Column="5" FontSize="30" HorizontalOptions="Center" VerticalOptions="End"/>
+        <Entry Grid.Row="3" Grid.Column="1" Text="{Binding Day}" Keyboard="Numeric" BackgroundColor="#B73E3E" FontSize="30" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+        <Entry Grid.Row="3" Grid.Column="3" Text="{Binding Month}" Keyboard="Numeric" BackgroundColor="#B73E3E" FontSize="30" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+        <Entry Grid.Row="3" Grid.Column="5" Text="{Binding Year}" Keyboard="Numeric" BackgroundColor="#B73E3E" FontSize="30" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+        <Button Command="{Binding GoToRegisterEmailCommand}" Text="➔" TextColor="White" BackgroundColor="#B73E3E" HeightRequest="50" WidthRequest="50" Grid.Row="4" Grid.ColumnSpan="7" />
+    </Grid>
 </ContentPage>

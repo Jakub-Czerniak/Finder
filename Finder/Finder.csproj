@@ -54,6 +54,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <ProjectReference Include="..\DataAccess\DataAccess.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <Compile Update="Views\LoginPage.xaml.cs">
 	    <DependentUpon>LoginPage.xaml</DependentUpon>
 	  </Compile>

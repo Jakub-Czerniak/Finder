@@ -8,7 +8,7 @@
              Title="">
     
     <VerticalStackLayout>
-        <Image Source="{Binding User.Photo.Source}"/>
+        <Image Source="{Binding User.Photo, Mode=OneWay, Converter={StaticResource ByteArrayToImageSourceConverter}}"/>
         <Label Text="{Binding User.Name}"/>
         <Label Text="O mnie" />
         <Label Text="{Binding User.AboutMe}"/>
