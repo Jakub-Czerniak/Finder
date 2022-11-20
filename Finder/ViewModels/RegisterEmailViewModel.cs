@@ -2,7 +2,7 @@
 using CommunityToolkit.Mvvm.Input;
 using Finder.Models;
 using Finder.Views;
-using DataAccess;
+using DataAccess.Data;
 
 namespace Finder.ViewModels
 {
@@ -21,7 +21,7 @@ namespace Finder.ViewModels
         [RelayCommand]
         async void GoToRegisterPassword()
         {
-            var IsUnique = await Data.EmailIsUnique(User.Email);
+            var IsUnique = await EmailData.EmailIsUnique(User.Email);
 
             if (IsValidEntry &  IsUnique)
             {

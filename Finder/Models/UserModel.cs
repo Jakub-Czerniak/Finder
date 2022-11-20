@@ -1,4 +1,6 @@
-﻿namespace Finder.Models
+﻿using System.Collections.ObjectModel;
+
+namespace Finder.Models
 {
     public class UserModel
     {
@@ -12,10 +14,13 @@
         public bool InterestedM { get; set; }
         public bool InterestedF { get; set; }
         public string AboutMe { get; set; }
-        public List<InterestModel> Interests { get; set; }
+        public ObservableCollection<InterestModel> Interests { get; set; }
         public int MinAgePreference {get; set;}
         public int MaxAgePreference { get; set; }
         public DateTime Birthday { get; set; }
         public int Age { get; set; }
+        public bool IsRegistered{ get; set; }
+        public bool IsNotRegistered { get { return !IsRegistered; } }
     }
 }
+

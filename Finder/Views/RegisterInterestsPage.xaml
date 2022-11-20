@@ -9,14 +9,23 @@
 
     <Grid BackgroundColor="#DD5353">
         <Grid.RowDefinitions>
-            <RowDefinition Height="5"/>
-            <RowDefinition Height="1"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
         <ScrollView>
-            <CollectionView>
-                
-            </CollectionView>
+            <FlexLayout AlignContent="SpaceAround"  >
+                <CollectionView ItemsSource="{Binding Interests}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="model:InterestModel">
+                            <Button Text="{Binding Name}" BackgroundColor="{Binding ButtonColor}" Margin="5,2,2,5"
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:RegisterInterestsViewModel}},Path=InterestTappedCommand}"
+                                    CommandParameter="{Binding .}"/>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </FlexLayout>
         </ScrollView>
-        <Button Command="{Binding FinishRegistrationCommand}" Text="➔" TextColor="White" BackgroundColor="#B73E3E" HeightRequest="50" WidthRequest="50" Grid.Row="2" />
+        <Button Command="{Binding FinishRegistrationCommand}" IsVisible="{Binding User.IsNotRegistered}" Text="➔" TextColor="White" BackgroundColor="#B73E3E" HeightRequest="50" WidthRequest="50" Grid.Row="2" />
+        <Button Command="{Binding FinishUpdateInterestsCommand}" IsVisible="{Binding User.IsRegistered}" Text="➔" TextColor="White" BackgroundColor="#B73E3E" HeightRequest="50" WidthRequest="50" Grid.Row="2" />
     </Grid>
 </ContentPage>

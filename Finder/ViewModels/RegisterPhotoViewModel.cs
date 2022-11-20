@@ -2,7 +2,6 @@
 using CommunityToolkit.Mvvm.Input;
 using Finder.Models;
 using Finder.Views;
-using Xamarin.Google.Crypto.Tink.Subtle;
 
 namespace Finder.ViewModels
 {
@@ -11,17 +10,26 @@ namespace Finder.ViewModels
     {
         [ObservableProperty]
         UserModel user;
-        byte[] photoo;
+        byte[] photo;
         public byte[] Photo
         {
             get { return photo; }
             set 
             {
-                photoo = value;
+                photo = value;
                 OnPropertyChanged();
             }
         }
 
+        [RelayCommand]
+        async void FinishUpdatePhoto()
+        {
+            var navigationParametr = new Dictionary<string, object>
+            {
+                {"User", User }
+            };
+            await Shell.Current.GoToAsync("//Home", navigationParametr);
+        }
 
         [RelayCommand]
         async void GoToRegisterInterests()
@@ -31,7 +39,6 @@ namespace Finder.ViewModels
                 {"User", User }
             };
             await Shell.Current.GoToAsync($"{nameof(RegisterInterestsPage)}", navigationParametr);
-            
         }
 
         [RelayCommand]

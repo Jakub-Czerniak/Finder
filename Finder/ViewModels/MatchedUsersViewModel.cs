@@ -15,6 +15,27 @@ namespace Finder.ViewModels
         ObservableCollection<UserModel> matchedUsers;
 
         [RelayCommand]
+        async void GoToUserEdit()
+        {
+            var navigationParametr = new Dictionary<string, object>
+            {
+                {"User", User }
+            };
+            await Shell.Current.GoToAsync($"{nameof(UserEditPage)}", navigationParametr);
+        }
+
+        [RelayCommand]
+        async void GoToRecommendation()
+        {
+            var navigationParametr = new Dictionary<string, object>
+            {
+                {"User", User }
+            };
+            await Shell.Current.GoToAsync($"{nameof(RecommendationPage)}", navigationParametr);
+        }
+
+
+        [RelayCommand]
         async void OnUserTapped(UserModel tappedUser)
         {
             var navigationParametr = new Dictionary<string, object>

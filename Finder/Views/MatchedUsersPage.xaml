@@ -5,11 +5,29 @@
              x:DataType="viewmodel:MatchedUsersViewModel"
              xmlns:viewmodel="clr-namespace:Finder.ViewModels"
              xmlns:model="clr-namespace:Finder.Models"
+             Shell.NavBarIsVisible="False"
              Title="">
 
-    <ScrollView BackgroundColor="#DD5353">
-        <CollectionView>
+    <Grid BackgroundColor="#DD5353">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="10"/>
+        </Grid.RowDefinitions>
+        <ScrollView >
+            <CollectionView>
 
-        </CollectionView>
-    </ScrollView>
+            </CollectionView>
+        </ScrollView>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <ImageButton Source="magnifier.png" IsEnabled="True" Command="{Binding GoToRecommendationCommand}" />
+            <ImageButton Source="list.png" Grid.Column="1" IsEnabled="False" BackgroundColor="#B73E3E" />
+            <ImageButton Source="user.png" Grid.Column="2" IsEnabled="True" Command="{Binding GoToUserEditCommand}"/>
+        </Grid>
+    </Grid>
 </ContentPage>

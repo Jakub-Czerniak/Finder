@@ -9,7 +9,7 @@
     <TabBar Route="Login">
         <ShellContent ContentTemplate="{DataTemplate local:LoginPage}"/>
     </TabBar>
-    <TabBar Route="Home">
+    <TabBar Route="Home" IsVisible="False">
         <ShellContent
         Title="Szukaj"
         ContentTemplate="{DataTemplate local:RecommendationPage}" />

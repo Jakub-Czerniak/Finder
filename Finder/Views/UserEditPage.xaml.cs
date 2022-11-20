@@ -7,6 +7,6 @@ public partial class UserEditPage : ContentPage
 	public UserEditPage()
 	{
 		InitializeComponent();
-		BindingContext = new UserEditViewModel();
-	}
+        BindingContext = new UserEditViewModel();
+    }
 }

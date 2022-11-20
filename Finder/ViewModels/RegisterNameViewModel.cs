@@ -2,7 +2,7 @@
 using CommunityToolkit.Mvvm.Input;
 using Finder.Models;
 using Finder.Views;
-
+using System.Collections.ObjectModel;
 
 namespace Finder.ViewModels
 {
@@ -38,7 +38,7 @@ namespace Finder.ViewModels
             User.Name = "";
             User.Email = "";
             User.Password = "";
-
+            User.Interests = new ObservableCollection<InterestModel>();
         }
     }
 }

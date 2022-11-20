@@ -1,6 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using Microsoft.Maui.Graphics;
 using Finder.Models;
 using Finder.Views;
 
@@ -31,12 +30,12 @@ namespace Finder.ViewModels
             if (menTapped)
             {
                 MenButtonColor = untappedColor;
-                User.InterestedM=menTapped = false;
+                User.InterestedM = menTapped = false;
             }
             else
             {
                 MenButtonColor = tappedColor;
-                User.InterestedM=menTapped = true;
+                User.InterestedM = menTapped = true;
             }
         }
 
@@ -56,6 +55,16 @@ namespace Finder.ViewModels
         }
 
         [RelayCommand]
+        async void FinishUpdateInterestedIn()
+        {
+            var navigationParametr = new Dictionary<string, object>
+            {
+                {"User", User }
+            };
+            await Shell.Current.GoToAsync("//Home", navigationParametr);
+        }
+
+        [RelayCommand]
         async void GoToRegisterPhoto()
         {
             if (!menTapped & !womenTapped)
@@ -72,9 +81,18 @@ namespace Finder.ViewModels
             }
         }
 
-        public RegisterInterestedInViewModel()
+        [RelayCommand]
+        void SetButtonColors()
         {
-            womenButtonColor = menButtonColor = untappedColor;
+            if (User.InterestedM)
+                MenButtonColor = tappedColor;
+            else
+                MenButtonColor = untappedColor;
+            if (User.InterestedF)
+                WomenButtonColor = tappedColor;
+            else
+                WomenButtonColor = untappedColor;
         }
+
     }
 }

@@ -8,6 +8,10 @@ public partial class AppShell : Shell
 	{
 		InitializeComponent();
         Routing.RegisterRoute(nameof(RecommendationPage), typeof(RecommendationPage));
+        Routing.RegisterRoute(nameof(UserEditPage), typeof(UserEditPage));
+        Routing.RegisterRoute(nameof(MatchedUsersPage), typeof(MatchedUsersPage));
+        Routing.RegisterRoute(nameof(UserDetailsPage), typeof(UserDetailsPage));
+
 
         Routing.RegisterRoute(nameof(RegisterNamePage), typeof(RegisterNamePage));
         Routing.RegisterRoute(nameof(RegisterEmailPage), typeof(RegisterEmailPage));
