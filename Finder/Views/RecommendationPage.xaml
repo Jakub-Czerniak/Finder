@@ -6,7 +6,17 @@
              x:DataType="viewmodel:RecommendationViewModel"
              xmlns:model="clr-namespace:Finder.Models"
              Shell.NavBarIsVisible="False"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              Title="">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <toolkit:ByteArrayToImageSourceConverter x:Key="ByteArrayToImageSourceConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Behaviors>
+        <toolkit:EventToCommandBehavior EventName="Appearing" Command="{Binding AppearingCommand}"/>
+    </ContentPage.Behaviors>
 
     <Grid BackgroundColor="#DD5353">
         <Grid.RowDefinitions>
@@ -25,19 +35,21 @@
         </Grid.ColumnDefinitions>
         <Label Text="Finder" FontSize="38"  VerticalOptions="Center" HorizontalOptions="Center" Grid.ColumnSpan="4"/>
 
-        <Image Source="{Binding RecommendedUser.Photo, Mode=OneWay, Converter={StaticResource ByteArrayToImageSourceConverter}}" Grid.Row="1" Grid.ColumnSpan="4" ></Image>
+        <Image Source="{Binding Photo, Mode=OneWay, Converter={StaticResource ByteArrayToImageSourceConverter}}" Grid.Row="1" Grid.ColumnSpan="4"/>
         <Grid Grid.Row="1" Grid.ColumnSpan="4" >
             <Grid.RowDefinitions>
                 <RowDefinition Height="3*"/>
                 <RowDefinition Height="0.25*"/>
                 <RowDefinition Height="0.75*"/>
             </Grid.RowDefinitions>
-            <Label Text="{Binding RecommendedUser.Name}" FontSize="40"/>
-            <Label Text="{Binding AboutMeShort}" FontSize="20"/>
+            <HorizontalStackLayout Margin="20,0,0,0" Grid.Row="2">
+                <Label Text="{Binding Name}" FontSize="40"   VerticalTextAlignment="Center"/>
+                <Label Text="{Binding Age}" FontSize="30" Grid.Row="2" Margin="10,0,0,0" VerticalTextAlignment="Center"/>
+            </HorizontalStackLayout>
         </Grid>
 
-        <Button Text="like" Grid.Row="2" Grid.ColumnSpan="2" BackgroundColor="#B73E3E" FontSize="20" Margin="30,10,10,10"/>
-        <Button Text="pass" Grid.Row="2" Grid.ColumnSpan="2" Grid.Column="2" BackgroundColor="#B73E3E" FontSize="20" Margin="10,10,30,10"/>
+        <Button Text="like" Command="{Binding SendLikeCommand}" Grid.Row="2" Grid.ColumnSpan="2" BackgroundColor="#B73E3E" FontSize="20" Margin="30,10,10,10"/>
+        <Button Text="pass" Command="{Binding SendPassCommand}" Grid.Row="2" Grid.ColumnSpan="2" Grid.Column="2" BackgroundColor="#B73E3E" FontSize="20" Margin="10,10,30,10"/>
 
         <Grid Grid.Row="4" Grid.ColumnSpan="4">
             <Grid.ColumnDefinitions>

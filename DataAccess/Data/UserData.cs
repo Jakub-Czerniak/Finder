@@ -79,7 +79,6 @@ namespace DataAccess.Data
         public static async Task DeleteUser(int id)
         {
             Uri uri = new Uri($"{_restUrl}/Users/{id}");
-
             try 
             {
                 HttpResponseMessage response = await _client.DeleteAsync(uri);
@@ -130,7 +129,7 @@ namespace DataAccess.Data
 
         public static async Task DeleteUserInterests(int userID)
         {
-            Uri uri = new Uri(string.Format(_restUrl, $"/Users/{userID}/Interests"));
+            Uri uri = new Uri($"{_restUrl}/Users/{userID}/Interests");
 
             try
             {

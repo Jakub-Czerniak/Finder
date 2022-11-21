@@ -5,7 +5,6 @@
              xmlns:viewmodel="clr-namespace:Finder.ViewModels"
              x:DataType="viewmodel:UserDetailsViewModel"
              xmlns:model="clr-namespace:Finder.Models"
-             Shell.NavBarIsVisible="False"
              Title="">
     
     <VerticalStackLayout>

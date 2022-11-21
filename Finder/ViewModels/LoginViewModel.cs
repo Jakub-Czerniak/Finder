@@ -18,6 +18,8 @@ namespace Finder.ViewModels
             var data = await LoginData.Login(user.Email, user.Password);
             if(data == null)
                 return;
+            User.Name = data.Name;
+            User.Gender = data.Gender;
             User.AboutMe = data.AboutMe;
             User.Id = data.Id;
             User.MaxAgePreference = data.MaxAgePreference;
@@ -26,7 +28,7 @@ namespace Finder.ViewModels
             User.Email = data.Email;
             User.Age= data.Age;
             User.InterestedM = bool.Parse(data.InterestedM);
-            User.InterestedM = bool.Parse(data.InterestedF);
+            User.InterestedF = bool.Parse(data.InterestedF);
             User.IsRegistered = true;
 
             var interests = await UserData.GetUserInterests(User.Id);

@@ -6,8 +6,17 @@
              xmlns:viewmodel="clr-namespace:Finder.ViewModels"
              xmlns:model="clr-namespace:Finder.Models"
              Shell.NavBarIsVisible="False"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              Title="">
 
+    <ContentPage.Behaviors>
+        <toolkit:EventToCommandBehavior Command="{Binding LoadMatchedUsersCommand}" EventName="Appearing"/>
+    </ContentPage.Behaviors>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <toolkit:ByteArrayToImageSourceConverter x:Key="ByteArrayToImageSourceConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <Grid BackgroundColor="#DD5353">
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -15,8 +24,28 @@
             <RowDefinition Height="10"/>
         </Grid.RowDefinitions>
         <ScrollView >
-            <CollectionView>
-
+            <CollectionView ItemsSource="{Binding MatchedUsers}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="model:UserModel">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="50"/>
+                                <RowDefinition Height="50"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1.75*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:MatchedUsersViewModel}},Path=OnUserTappedCommand}"
+                                    CommandParameter="{Binding .}"/>
+                            </Grid.GestureRecognizers>
+                            <Image Source="{Binding Photo, Mode=OneWay, Converter={StaticResource ByteArrayToImageSourceConverter}}" Grid.RowSpan="2" Margin="2"/>
+                            <Label Text="{Binding Name}" Grid.Column="1" FontSize="30" Margin="20,0,0,0" VerticalOptions="Center"/>
+                            <Label Text="{Binding Age}" Grid.Column="1" Grid.Row="1" FontSize="30" Margin="20,0,0,0" VerticalOptions="Center"/>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
             </CollectionView>
         </ScrollView>
         <Grid Grid.Row="1">

@@ -34,7 +34,7 @@ namespace DataAccess.Data
                 if(response.IsSuccessStatusCode)
                 {
                     string responseContent = await response.Content.ReadAsStringAsync();
-                    dataReturned = JsonSerializer.Deserialize<MatchEngineModel>(responseContent);
+                    dataReturned = JsonSerializer.Deserialize<MatchEngineModel>(responseContent,_serializerOptions);
                 }
             }
             catch(Exception ex)

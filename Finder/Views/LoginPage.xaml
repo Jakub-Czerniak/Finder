@@ -5,7 +5,11 @@
              xmlns:viewmodel="clr-namespace:Finder.ViewModels"
              x:DataType="viewmodel:LoginViewModel"
              xmlns:model="clr-namespace:Finder.Models"
+             Shell.NavBarIsVisible="False"
              Title="">
+    <Shell.BackButtonBehavior>
+        <BackButtonBehavior IsEnabled="False"/>
+    </Shell.BackButtonBehavior>
     <VerticalStackLayout BackgroundColor="#DD5353" >
         <HorizontalStackLayout HorizontalOptions="Center" Margin="0,130,0,50">
             <Label Text="F" TextColor="#FFB200" FontSize="40" />

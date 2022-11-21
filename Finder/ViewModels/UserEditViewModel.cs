@@ -31,12 +31,11 @@ namespace Finder.ViewModels
         [ObservableProperty]
         bool isVisibleEntryError;
 
-        bool userUpdated;
+        bool doNotUpdate;
 
         [RelayCommand]
         async void Logout()
         {
-            User = null;
             await Shell.Current.GoToAsync($"{nameof(LoginPage)}");
         }
 
@@ -63,7 +62,6 @@ namespace Finder.ViewModels
         [RelayCommand]
         async void GoToRegisterPhoto()
         {
-            userUpdated = true;
             var navigationParametr = new Dictionary<string, object>
             {
                 {"User", User }
@@ -74,7 +72,6 @@ namespace Finder.ViewModels
         [RelayCommand]
         async void GoToRegisterInterestedIn()
         {
-            userUpdated = true;
             var navigationParametr = new Dictionary<string, object>
             {
                 {"User", User }
@@ -97,31 +94,28 @@ namespace Finder.ViewModels
         {
             var navigationParametr = new Dictionary<string, object>
             {
-                {"User", User }
+                {"User", User },
+                {"TappedUser", User }
             };
             await Shell.Current.GoToAsync($"{nameof(UserDetailsViewModel)}", navigationParametr);
         }
 
-        [RelayCommand]
-        void AboutMeChanged()
-        {
-            userUpdated = true; 
-        }
 
         [RelayCommand]
         async void DeleteUser()
         {
-            //api call
+            doNotUpdate = true;
+            await UserData.DeleteUser(User.Id);
+            await Shell.Current.GoToAsync($"{nameof(LoginPage)}");
         }
 
         [RelayCommand]
         async Task UpdateUser()
         {
-            if (userUpdated & maxEntryIsValid() & minEntryIsValid())
+            if (!doNotUpdate & maxEntryIsValid() & minEntryIsValid())
             {
-                userUpdated = false;
-                await UserData.GetUserInterests(2);
-                //api call
+                await UserData.UpdateUser(User.Id, User.Photo, User.InterestedF.ToString(), User.InterestedM.ToString(), 
+                    User.AboutMe, User.MinAgePreference, User.MaxAgePreference);
             }
         }
 
@@ -143,7 +137,7 @@ namespace Finder.ViewModels
                     InterestString += ", ";
                 else
                     InterestString = "";
-                InterestString += $"{interest}";
+                InterestString += $"{interest.Name}";
             }
         }
 

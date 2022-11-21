@@ -12,6 +12,11 @@
         <toolkit:EventToCommandBehavior EventName="Appearing" Command="{Binding AppearingCommand}"/>
         <toolkit:EventToCommandBehavior EventName="Disappearing" Command="{Binding UpdateUserCommand}"/>
     </ContentPage.Behaviors>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <toolkit:ByteArrayToImageSourceConverter x:Key="ByteArrayToImageSourceConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <Grid BackgroundColor="#DD5353">
         <Grid.RowDefinitions>
             <RowDefinition />
@@ -21,17 +26,13 @@
     <ScrollView>
         <VerticalStackLayout>
             <Label Text="Twoje zdjęcie" FontSize="20" Margin="6,4,0,5"/>
-            <Image Source="{Binding User.Photo, Mode=OneWay, Converter={StaticResource ByteArrayToImageSourceConverter}}" >
-                <Image.GestureRecognizers>
-                    <TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:UserEditViewModel}}, Path=GoToRegisterPhotoCommand}"/>
-                </Image.GestureRecognizers>
-            </Image>
+            <Image Source="{Binding User.Photo, Mode=OneWay, Converter={StaticResource ByteArrayToImageSourceConverter}}"> 
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:UserEditViewModel}}, Path=GoToRegisterPhotoCommand}"/>
+                    </Image.GestureRecognizers>
+                </Image>
             <Label Text="O mnie" FontSize="20" Margin="6,10,0,5"/>
-            <Editor Text="{Binding User.AboutMe}" BackgroundColor="Wheat" MinimumHeightRequest="75" Placeholder="Napisz coś o sobie" PlaceholderColor="#DD5353">
-                <Editor.Behaviors>
-                    <toolkit:EventToCommandBehavior EventName="TextChanged" Command="{Binding AboutMeChangedCommand}"/>
-                </Editor.Behaviors>
-            </Editor>
+            <Editor Text="{Binding User.AboutMe}" BackgroundColor="Wheat" MinimumHeightRequest="75" MaxLength="500"  Placeholder="Napisz coś o sobie             " PlaceholderColor="#DD5353"/>
             <Label Text="Zainteresowania" FontSize="20" Margin="6,10,0,5" />
             <Button Text="{Binding InterestString}" BackgroundColor="#B73E3E" Command="{Binding GoToRegisterInterestsCommand}"/>
             <Label Text="Płeć" FontSize="20" Margin="6,10,0,5"/>

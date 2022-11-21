@@ -33,17 +33,17 @@ namespace DataAccess.Data
             }
         }
 
-        public static async Task<List<PairModel>> GetPairs(int id)
+        public static async Task<List<UserModel>> GetPairs(int id)
         {
             Uri uri = new Uri($"{_restUrl}/Pairs/{id}");
-            List<PairModel> data = new List<PairModel>();
+            List<UserModel> data = new List<UserModel>();
             try
             {
                 HttpResponseMessage response = await _client.GetAsync(uri);
                 if(response.IsSuccessStatusCode)
                 {
                     string content = await response.Content.ReadAsStringAsync();
-                    data = JsonSerializer.Deserialize<List<PairModel>>(content, _serializerOptions);
+                    data = JsonSerializer.Deserialize<List<UserModel>>(content, _serializerOptions);
                 }
             }
             catch(Exception ex)

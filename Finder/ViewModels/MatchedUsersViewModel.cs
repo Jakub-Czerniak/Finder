@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using Finder.Models;
 using CommunityToolkit.Mvvm.Input;
 using Finder.Views;
+using DataAccess.Data;
 
 namespace Finder.ViewModels
 {
@@ -41,15 +42,27 @@ namespace Finder.ViewModels
             var navigationParametr = new Dictionary<string, object>
             {
                 {"User", User },
-                {"tappedUser", tappedUser }
+                {"TappedUser", tappedUser }
             };
             await Shell.Current.GoToAsync($"{nameof(UserDetailsPage)}", navigationParametr);
         }
 
         [RelayCommand]
-        void LoadMatchedUsers()
+        async void LoadMatchedUsers()
         {
-            //MatchedUsers = //apicall;
+            var data = await PairData.GetPairs(User.Id);
+            MatchedUsers.Clear();
+            foreach (var pair in data)
+            {
+                MatchedUsers.Add(new UserModel
+                {
+                    Id = pair.Id,
+                    Name = pair.Name,
+                    AboutMe = pair.AboutMe,
+                    Age = pair.Age,
+                    Photo = pair.Photo
+                });
+            }
         }
 
         public MatchedUsersViewModel()

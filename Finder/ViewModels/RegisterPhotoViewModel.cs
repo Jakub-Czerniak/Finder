@@ -28,7 +28,7 @@ namespace Finder.ViewModels
             {
                 {"User", User }
             };
-            await Shell.Current.GoToAsync("//Home", navigationParametr);
+            await Shell.Current.GoToAsync($"{nameof(UserEditPage)}", navigationParametr);
         }
 
         [RelayCommand]
