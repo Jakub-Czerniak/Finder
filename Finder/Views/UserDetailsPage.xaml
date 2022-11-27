@@ -5,15 +5,25 @@
              xmlns:viewmodel="clr-namespace:Finder.ViewModels"
              x:DataType="viewmodel:UserDetailsViewModel"
              xmlns:model="clr-namespace:Finder.Models"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              Title="">
-    
-    <VerticalStackLayout>
-        <Image Source="{Binding User.Photo, Mode=OneWay, Converter={StaticResource ByteArrayToImageSourceConverter}}"/>
-        <Label Text="{Binding User.Name}"/>
-        <Label Text="O mnie" />
-        <Label Text="{Binding User.AboutMe}"/>
-        <Label Text="Moje zainteresowania" />
-        
-
+    <ContentPage.Resources>
+        <toolkit:ByteArrayToImageSourceConverter x:Key="ByteArrayToImageSourceConverter" />
+    </ContentPage.Resources>
+    <ContentPage.Behaviors>
+        <toolkit:EventToCommandBehavior EventName="Appearing" Command="{Binding MakeInterestStringCommand}"/>
+    </ContentPage.Behaviors>
+    <ScrollView>
+    <VerticalStackLayout BackgroundColor="#DD5353">
+        <Image Source="{Binding TappedUser.Photo, Mode=OneWay, Converter={StaticResource ByteArrayToImageSourceConverter}}"/>
+        <HorizontalStackLayout Margin="12,0,0,0">
+            <Label Text="{Binding TappedUser.Name}" FontSize="40" VerticalTextAlignment="Center"/>
+            <Label Text="{Binding TappedUser.Age}" FontSize="30" Grid.Row="2" Margin="10,0,0,0" VerticalTextAlignment="Center"/>
+        </HorizontalStackLayout>
+        <Label Text="Moje zainteresowania" FontSize="20" Margin="6,10,0,5" BackgroundColor="#B73E3E"/>
+        <Label Text="{Binding InterestString}" Margin="12,10,0,5" FontSize="20" />
+        <Label Text="O mnie" FontSize="20" Margin="6,10,0,5" BackgroundColor="#B73E3E"/>
+        <Label Text="{Binding TappedUser.AboutMe}" FontSize="20" Margin="12,10,0,5"/>
     </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

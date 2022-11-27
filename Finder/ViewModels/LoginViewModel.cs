@@ -12,12 +12,19 @@ namespace Finder.ViewModels
         [ObservableProperty]
         UserModel user;
 
+        [ObservableProperty]
+        bool failedLogin;
+
         [RelayCommand]
         async void Login()
         {
+            FailedLogin = false;
             var data = await LoginData.Login(user.Email, user.Password);
             if(data == null)
+            {
+                FailedLogin = true;
                 return;
+            }
             User.Name = data.Name;
             User.Gender = data.Gender;
             User.AboutMe = data.AboutMe;

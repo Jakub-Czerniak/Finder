@@ -14,14 +14,14 @@ namespace Finder.ViewModels
         [RelayCommand]
         void MenTapped()
         {
-            User.Gender = "Men";
+            User.Gender = "Mężczyzna";
             GoToRegisterInterestedIn();
         }
 
         [RelayCommand]
         void WomenTapped()
         {
-            User.Gender = "Women";
+            User.Gender = "Kobieta";
             GoToRegisterInterestedIn();
         }
 

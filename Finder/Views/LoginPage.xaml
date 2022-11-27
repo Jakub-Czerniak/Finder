@@ -6,6 +6,7 @@
              x:DataType="viewmodel:LoginViewModel"
              xmlns:model="clr-namespace:Finder.Models"
              Shell.NavBarIsVisible="False"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              Title="">
     <Shell.BackButtonBehavior>
         <BackButtonBehavior IsEnabled="False"/>
@@ -16,15 +17,23 @@
             <Label Text="inder" FontSize="40" />
         </HorizontalStackLayout>
         <Label Text="Email" Margin="30,0,25,2"/>
-        <Entry Text="{Binding User.Email}" Margin="25,0,25,0" BackgroundColor="#B73E3E" Keyboard="Email" />
+        <Entry Text="{Binding User.Email}" Margin="25,0,25,0" BackgroundColor="#B73E3E" Keyboard="Email" >
+            <Entry.Behaviors>
+                <toolkit:TextValidationBehavior MinimumLength="1" MaximumLength="55"/>
+            </Entry.Behaviors>
+        </Entry>
         <Label Text="Hasło" Margin="30,10,25,2"/>
-        <Entry Text="{Binding User.Password}" Margin="25,0,25,0" BackgroundColor="#B73E3E" IsPassword="True" />
-        <Button Command="{Binding LoginCommand}" Text="➔" BackgroundColor="White" HeightRequest="50" WidthRequest="50" Margin="0,20,0,0" />
+        <Entry Text="{Binding User.Password}" Margin="25,0,25,0" BackgroundColor="#B73E3E" IsPassword="True" >
+            <Entry.Behaviors>
+                <toolkit:TextValidationBehavior MinimumLength="1" MaximumLength="55"/>
+            </Entry.Behaviors>
+        </Entry>
+        <Label Text="Podany email lub hasło jest błędne." FontSize="10" Margin="25,5,20,0" TextColor="Gray" VerticalOptions="End" IsVisible="{Binding FailedLogin}"/>
+        <Button Command="{Binding LoginCommand}" Text="➔" TextColor="Black" BackgroundColor="White" HeightRequest="50" WidthRequest="50" Margin="0,20,0,0" />
         <Label Text="Pierwszy raz?" TextColor="#FFB200" TextDecorations="Underline" FontSize="10" FontAttributes="Bold"  Margin="0,15,0,0" HorizontalOptions="Center">
             <Label.GestureRecognizers>
                 <TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:LoginViewModel}}, Path=GoToRegistrationCommand}"/>
             </Label.GestureRecognizers>
         </Label>
-        <Label Text="Informacje" TextColor="#FFB200" TextDecorations="Underline" FontSize="10" FontAttributes="Bold"  Margin="0,0,0,0" HorizontalOptions="Center"/>
     </VerticalStackLayout>
 </ContentPage>

@@ -38,6 +38,7 @@ namespace Finder.ViewModels
             User.Name = "";
             User.Email = "";
             User.Password = "";
+            User.AboutMe = "";
             User.Interests = new ObservableCollection<InterestModel>();
         }
     }

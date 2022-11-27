@@ -37,8 +37,9 @@
                                 <ColumnDefinition Width="1.75*"/>
                             </Grid.ColumnDefinitions>
                             <Grid.GestureRecognizers>
-                                <TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:MatchedUsersViewModel}},Path=OnUserTappedCommand}"
-                                    CommandParameter="{Binding .}"/>
+                                <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:MatchedUsersViewModel}},Path=UserTappedCommand}"
+                                    CommandParameter="{Binding .}"
+                                    NumberOfTapsRequired="1"/>
                             </Grid.GestureRecognizers>
                             <Image Source="{Binding Photo, Mode=OneWay, Converter={StaticResource ByteArrayToImageSourceConverter}}" Grid.RowSpan="2" Margin="2"/>
                             <Label Text="{Binding Name}" Grid.Column="1" FontSize="30" Margin="20,0,0,0" VerticalOptions="Center"/>

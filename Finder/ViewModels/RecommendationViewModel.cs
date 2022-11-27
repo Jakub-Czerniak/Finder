@@ -4,7 +4,6 @@ using Finder.Models;
 using Finder.Views;
 using DataAccess.Data;
 using System.Collections.ObjectModel;
-using Java.Nio.Channels;
 
 namespace Finder.ViewModels
 {
@@ -53,7 +52,7 @@ namespace Finder.ViewModels
             var navigationParametr = new Dictionary<string, object>
             {
                 {"User", User },
-                {"TappedUser", recommendedUser }
+                {"TappedUser", RecommendedUser }
             };
             await Shell.Current.GoToAsync($"{nameof(UserDetailsPage)}", navigationParametr);
         }
@@ -109,6 +108,7 @@ namespace Finder.ViewModels
         [RelayCommand]
         async Task SendPass()
         {
+            if(RecommendedUser.Id == 0) return;
             await PairData.InsertDecision(User.Id, RecommendedUser.Id, "pass");
             loadRecommendation();
         }
@@ -116,6 +116,7 @@ namespace Finder.ViewModels
         [RelayCommand]
         async Task SendLike()
         {
+            if (RecommendedUser.Id == 0) return;
             await PairData.InsertDecision(User.Id, RecommendedUser.Id, "like");
             loadRecommendation();
         }

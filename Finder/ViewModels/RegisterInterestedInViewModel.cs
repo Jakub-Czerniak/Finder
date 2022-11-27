@@ -85,13 +85,25 @@ namespace Finder.ViewModels
         void SetButtonColors()
         {
             if (User.InterestedM)
+            {
                 MenButtonColor = tappedColor;
+                menTapped = true;
+            }
             else
+            {
                 MenButtonColor = untappedColor;
+                menTapped = false;
+            }
             if (User.InterestedF)
+            {
                 WomenButtonColor = tappedColor;
+                womenTapped = true;
+            }
             else
+            {
                 WomenButtonColor = untappedColor;
+                womenTapped = false;
+            }
         }
 
     }

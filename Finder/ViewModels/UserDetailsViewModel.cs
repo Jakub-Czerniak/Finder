@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using Finder.Models;
 
 namespace Finder.ViewModels
@@ -11,9 +12,22 @@ namespace Finder.ViewModels
         UserModel user;
         [ObservableProperty]
         UserModel tappedUser;
+        [ObservableProperty]
+        string interestString;
 
-
-
+        [RelayCommand]
+        void MakeInterestString()
+        {
+            InterestString = "Brak zainteresowań";
+            foreach (var interest in TappedUser.Interests)
+            {
+                if (interest != TappedUser.Interests[0])
+                    InterestString += ", ";
+                else
+                    InterestString = "";
+                InterestString += $"{interest.Name}";
+            }
+        }
 
     }
 }

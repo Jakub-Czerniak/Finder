@@ -4,6 +4,7 @@ using Finder.Models;
 using CommunityToolkit.Mvvm.Input;
 using Finder.Views;
 using DataAccess.Data;
+using System.Net.Http.Headers;
 
 namespace Finder.ViewModels
 {
@@ -37,12 +38,12 @@ namespace Finder.ViewModels
 
 
         [RelayCommand]
-        async void OnUserTapped(UserModel tappedUser)
+        async void UserTapped(UserModel tappedUser)
         {
             var navigationParametr = new Dictionary<string, object>
             {
-                {"User", User },
-                {"TappedUser", tappedUser }
+                {"User", User},
+                {"TappedUser", tappedUser}
             };
             await Shell.Current.GoToAsync($"{nameof(UserDetailsPage)}", navigationParametr);
         }
@@ -54,14 +55,20 @@ namespace Finder.ViewModels
             MatchedUsers.Clear();
             foreach (var pair in data)
             {
+                var interestsData = await UserData.GetUserInterests(pair.Id);
+                ObservableCollection<InterestModel> interests = new ObservableCollection<InterestModel>();
+                foreach (var interest in interestsData)
+                    interests.Add(new InterestModel { Id = interest.Id, Name = interest.Name});
                 MatchedUsers.Add(new UserModel
                 {
                     Id = pair.Id,
                     Name = pair.Name,
                     AboutMe = pair.AboutMe,
                     Age = pair.Age,
-                    Photo = pair.Photo
+                    Photo = pair.Photo,
+                    Interests = interests
                 });
+
             }
         }
 

@@ -16,6 +16,8 @@ namespace Finder.ViewModels
         [ObservableProperty]
         string intrestedInString;
 
+        bool doNotUpdate;
+
         bool maxEntryIsValid()
         {
             if (User.MaxAgePreference > User.MinAgePreference & User.MaxAgePreference <= 120)
@@ -30,8 +32,7 @@ namespace Finder.ViewModels
         }
         [ObservableProperty]
         bool isVisibleEntryError;
-
-        bool doNotUpdate;
+        
 
         [RelayCommand]
         async void Logout()
@@ -94,10 +95,10 @@ namespace Finder.ViewModels
         {
             var navigationParametr = new Dictionary<string, object>
             {
-                {"User", User },
-                {"TappedUser", User }
+                {"User", User},
+                {"TappedUser", User}
             };
-            await Shell.Current.GoToAsync($"{nameof(UserDetailsViewModel)}", navigationParametr);
+            await Shell.Current.GoToAsync($"{nameof(UserDetailsPage)}", navigationParametr);
         }
 
 
