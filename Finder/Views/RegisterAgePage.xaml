@@ -34,9 +34,9 @@
         <Label Text="DD" Grid.Row="2" Grid.Column="1" FontSize="30" HorizontalOptions="Center" VerticalOptions="End"/>
         <Label Text="MM" Grid.Row="2" Grid.Column="3" FontSize="30" HorizontalOptions="Center" VerticalOptions="End"/>
         <Label Text="YYYY" Grid.Row="2" Grid.Column="5" FontSize="30" HorizontalOptions="Center" VerticalOptions="End"/>
-        <Entry Grid.Row="3" Grid.Column="1" Text="{Binding Day}" Keyboard="Numeric" BackgroundColor="#B73E3E" FontSize="30" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
-        <Entry Grid.Row="3" Grid.Column="3" Text="{Binding Month}" Keyboard="Numeric" BackgroundColor="#B73E3E" FontSize="30" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
-        <Entry Grid.Row="3" Grid.Column="5" Text="{Binding Year}" Keyboard="Numeric" BackgroundColor="#B73E3E" FontSize="30" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+        <Entry Grid.Row="3" Grid.Column="1" Text="{Binding Day}" Keyboard="Numeric" BackgroundColor="#B73E3E" FontSize="28" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+        <Entry Grid.Row="3" Grid.Column="3" Text="{Binding Month}" Keyboard="Numeric" BackgroundColor="#B73E3E" FontSize="28" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+        <Entry Grid.Row="3" Grid.Column="5" Text="{Binding Year}" Keyboard="Numeric" BackgroundColor="#B73E3E" FontSize="28" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
         <Button Command="{Binding GoToRegisterEmailCommand}" Text="➔" TextColor="White" BackgroundColor="#B73E3E" HeightRequest="50" WidthRequest="50" Grid.Row="4" Grid.ColumnSpan="7" />
     </Grid>
 </ContentPage>

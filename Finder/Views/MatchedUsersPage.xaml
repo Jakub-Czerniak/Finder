@@ -56,7 +56,7 @@
                 <ColumnDefinition Width="1*"/>
             </Grid.ColumnDefinitions>
             <ImageButton Source="magnifier.png" IsEnabled="True" Command="{Binding GoToRecommendationCommand}" />
-            <ImageButton Source="list.png" Grid.Column="1" IsEnabled="False" BackgroundColor="#B73E3E" />
+            <ImageButton Source="list.png" Grid.Column="1" IsEnabled="False"  />
             <ImageButton Source="user.png" Grid.Column="2" IsEnabled="True" Command="{Binding GoToUserEditCommand}"/>
         </Grid>
     </Grid>

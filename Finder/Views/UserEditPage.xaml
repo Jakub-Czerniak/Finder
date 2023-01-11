@@ -72,7 +72,7 @@
             </Grid.ColumnDefinitions>
         <ImageButton Source="magnifier.png" IsEnabled="True" Command="{Binding GoToRecommendationCommand}" />
         <ImageButton Source="list.png" Grid.Column="1" IsEnabled="True" Command="{Binding GoToMatchedUsersCommand}"/>
-        <ImageButton Source="user.png" Grid.Column="2" IsEnabled="False" BackgroundColor="#B73E3E"/>
+        <ImageButton Source="user.png" Grid.Column="2" IsEnabled="False"/>
     </Grid>
     </Grid>
 </ContentPage>

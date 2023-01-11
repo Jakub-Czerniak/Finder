@@ -13,7 +13,7 @@
     </Shell.BackButtonBehavior>
     <VerticalStackLayout BackgroundColor="#DD5353" >
         <HorizontalStackLayout HorizontalOptions="Center" Margin="0,130,0,50">
-            <Label Text="F" TextColor="#FFB200" FontSize="40" />
+            <Label Text="F"  FontSize="40" />
             <Label Text="inder" FontSize="40" />
         </HorizontalStackLayout>
         <Label Text="Email" Margin="30,0,25,2"/>
@@ -28,9 +28,9 @@
                 <toolkit:TextValidationBehavior MinimumLength="1" MaximumLength="55"/>
             </Entry.Behaviors>
         </Entry>
-        <Label Text="Podany email lub hasło jest błędne." FontSize="10" Margin="25,5,20,0" TextColor="Gray" VerticalOptions="End" IsVisible="{Binding FailedLogin}"/>
+        <Label Text="Podany email lub hasło jest błędne." FontSize="12" Margin="25,5,20,0" TextColor="Black" VerticalOptions="End" IsVisible="{Binding FailedLogin}"/>
         <Button Command="{Binding LoginCommand}" Text="➔" TextColor="Black" BackgroundColor="White" HeightRequest="50" WidthRequest="50" Margin="0,20,0,0" />
-        <Label Text="Pierwszy raz?" TextColor="#FFB200" TextDecorations="Underline" FontSize="10" FontAttributes="Bold"  Margin="0,15,0,0" HorizontalOptions="Center">
+        <Label Text="Pierwszy raz?"  TextDecorations="Underline" FontSize="10" FontAttributes="Bold"  Margin="0,15,0,0" HorizontalOptions="Center">
             <Label.GestureRecognizers>
                 <TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:LoginViewModel}}, Path=GoToRegistrationCommand}"/>
             </Label.GestureRecognizers>

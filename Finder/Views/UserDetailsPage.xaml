@@ -22,7 +22,7 @@
         </HorizontalStackLayout>
         <Label Text="Moje zainteresowania" FontSize="20" Margin="6,10,0,5" BackgroundColor="#B73E3E"/>
         <Label Text="{Binding InterestString}" Margin="12,10,0,5" FontSize="20" />
-        <Label Text="O mnie" FontSize="20" Margin="6,10,0,5" BackgroundColor="#B73E3E"/>
+        <Label Text="O mnie" FontSize="20" Margin="6,10,0,5" />
         <Label Text="{Binding TappedUser.AboutMe}" FontSize="20" Margin="12,10,0,5"/>
     </VerticalStackLayout>
     </ScrollView>

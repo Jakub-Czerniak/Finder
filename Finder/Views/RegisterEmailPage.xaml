@@ -26,8 +26,8 @@
                 <toolkit:EmailValidationBehavior IsValid="{Binding IsValidEntry}" MinimumLength="1" MaximumLength="250" Flags="ValidateOnValueChanged"/>
             </Entry.Behaviors>
         </Entry>
-            <Label Text="Proszę wpisać poprawny email." IsVisible="{Binding IsVisibleEntryError}" FontSize="10" Margin="20,5,20,0" TextColor="Gray" VerticalOptions="End"/>
-            <Label Text="Podany email jest już w użyciu." IsVisible="{Binding IsVisibleUniqueError}" FontSize="10" Margin="20,5,20,0" TextColor="Gray" VerticalOptions="End"/>
+            <Label Text="Proszę wpisać poprawny email." IsVisible="{Binding IsVisibleEntryError}" FontSize="12" Margin="20,5,20,0" TextColor="Black" VerticalOptions="End"/>
+            <Label Text="Podany email jest już w użyciu." IsVisible="{Binding IsVisibleUniqueError}" FontSize="12" Margin="20,5,20,0" TextColor="Black" VerticalOptions="End"/>
         </VerticalStackLayout>
         <Button Command="{Binding GoToRegisterPasswordCommand}" Text="➔" TextColor="White" BackgroundColor="#B73E3E" HeightRequest="50" WidthRequest="50" Margin="0,20,0,0" Grid.Row="3" />
     </Grid>
